@@ -9,7 +9,7 @@ export function PostForm({ create }) {
 
   function addNewPost(e) {
     e.preventDefault();
-    const newPost = { ...post };
+    const newPost = { ...post, id: Date.now() };
     create(newPost);
     setPost({ title: "", description: "" });
   }
