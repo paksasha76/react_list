@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 import "./App.css";
 
@@ -6,10 +6,12 @@ import { PostList } from "./Components/PostList";
 
 import { PostForm } from "./Components/PostForm";
 
+import { MyInput } from "./Components/UI/input/MyInput";
+
 import MySelect from "./Components/UI/select/MySelect";
 
 function App() {
-  let [posts, setPosts] = useState([
+  const [posts, setPosts] = useState([
     {
       id: 1,
       title: "Javascript",
@@ -24,6 +26,14 @@ function App() {
 
   const [selectedSort, setSelectedSort] = useState("");
 
+  const [searchQuery, setSearchQuery] = useState("")
+
+  const sortedPosts = useMemo(() => {
+    if(selectedSort) {
+      return [...posts].sort((a, b) => {return a[selectedSort].localeCompare(b[selectedSort])});
+    }
+    return posts
+  }, selectedSort, posts)
   function createPost(newPost) {
     setPosts([...posts, newPost]);
   }
@@ -38,18 +48,19 @@ function App() {
 
   function sortPosts(sort) {
     setSelectedSort(sort);
-    setPosts(
-      [...posts].sort((a, b) => {
-        return a[sort].localeCompare(b[sort]);
-      })
-    );
   }
+
+  const sortedAndSearchedPosts = useMemo(() => {
+    return sortedPosts.filter((post) => {return post.title.includes(searchQuery)})
+  }, [searchQuery, sortedPosts])
+
 
   return (
     <div className="App">
       <PostForm create={createPost} />
       <div>
         <hr style={{ margin: "15px 0" }}></hr>
+        <MyInput value={searchQuery} onChange={e => setSearchQuery(e.target.value)}/>
         <MySelect
           value={selectedSort}
           onChange={sortPosts}
@@ -61,7 +72,7 @@ function App() {
         />
       </div>
       {posts.length !== 0 ? (
-        <PostList posts={posts} title={"СПИСОК ПОСТОВ"} remove={removePost} />
+        <PostList posts={sortedAndSearchedPosts} title={"СПИСОК ПОСТОВ"} remove={removePost} />
       ) : (
         <h1 style={{ textAlign: "center" }}>Посты не найдены</h1>
       )}
