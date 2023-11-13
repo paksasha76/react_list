@@ -22,7 +22,7 @@ function App() {
     { id: 5, title: "C++", description: "Просто мусор" },
   ]);
 
-  const [selectedSort, setSelectedSort] = useState("")
+  const [selectedSort, setSelectedSort] = useState("");
 
   function createPost(newPost) {
     setPosts([...posts, newPost]);
@@ -37,8 +37,12 @@ function App() {
   }
 
   function sortPosts(sort) {
-    setSelectedSort(sort)
-    setPosts([...posts].sort((a,b) => {return a[sort].localeCompare(b[sort])}))
+    setSelectedSort(sort);
+    setPosts(
+      [...posts].sort((a, b) => {
+        return a[sort].localeCompare(b[sort]);
+      })
+    );
   }
 
   return (
@@ -47,12 +51,12 @@ function App() {
       <div>
         <hr style={{ margin: "15px 0" }}></hr>
         <MySelect
-         value={selectedSort}
-         onChange={sortPosts}
+          value={selectedSort}
+          onChange={sortPosts}
           defaultValue={"Сортировка"}
           options={[
-            { value: 'title', name: "По названию" },
-            { value: 'description', name: "По описанию" },
+            { value: "title", name: "По названию" },
+            { value: "description", name: "По описанию" },
           ]}
         />
       </div>

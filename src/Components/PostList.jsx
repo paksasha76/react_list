@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import { Post } from "./Post";
 
-export function PostList({ posts, title, remove}) {
+export function PostList({ posts, title, remove }) {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>{title}</h1>
@@ -13,8 +13,10 @@ export function PostList({ posts, title, remove}) {
             title={post.title}
             id={post.id}
             description={post.description}
-            number={index+1}
-            remove={() => {remove(post)}}
+            number={index + 1}
+            remove={() => {
+              remove(post);
+            }}
           />
         );
       })}
