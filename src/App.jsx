@@ -33,7 +33,7 @@ function App() {
       return [...posts].sort((a, b) => {return a[selectedSort].localeCompare(b[selectedSort])});
     }
     return posts
-  }, selectedSort, posts)
+  }, [selectedSort, posts])
   function createPost(newPost) {
     setPosts([...posts, newPost]);
   }
@@ -60,7 +60,7 @@ function App() {
       <PostForm create={createPost} />
       <div>
         <hr style={{ margin: "15px 0" }}></hr>
-        <MyInput value={searchQuery} onChange={e => setSearchQuery(e.target.value)}/>
+        <MyInput placeholder="Поиск" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}/>
         <MySelect
           value={selectedSort}
           onChange={sortPosts}
@@ -71,7 +71,7 @@ function App() {
           ]}
         />
       </div>
-      {posts.length !== 0 ? (
+      {sortedAndSearchedPosts.length !== 0 ? (
         <PostList posts={sortedAndSearchedPosts} title={"СПИСОК ПОСТОВ"} remove={removePost} />
       ) : (
         <h1 style={{ textAlign: "center" }}>Посты не найдены</h1>
