@@ -1,19 +1,29 @@
-import React from "react"
+import React from "react";
 
-import classes from "./MyModal.module.css"
+import classes from "./MyModal.module.css";
 
-export function MyModel({children, visible, setVisible}) {
-    const rootClasses = [classes.myModal]
+export function MyModel({ children, visible, setVisible }) {
+  const rootClasses = [classes.myModal];
 
-    if(visible) {
-        rootClasses.push(classes.active)
-    }
+  if (visible) {
+    rootClasses.push(classes.active);
+  }
 
-    return (
-        <div className={rootClasses.join(' ')} onClick={() => {setVisible(false)}}>
-            <div className={classes.myModalContent} onClick={(e) => {e.stopPropagation()}}>
-            {children}
-            </div>
-        </div>
-    )
+  return (
+    <div
+      className={rootClasses.join(" ")}
+      onClick={() => {
+        setVisible(false);
+      }}
+    >
+      <div
+        className={classes.myModalContent}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
 }
