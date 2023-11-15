@@ -29,7 +29,7 @@ export function PostForm({ create }) {
           value={post.description}
           onChange={(e) => setPost({ ...post, description: e.target.value })}
         />
-        <MyButton onClick={addNewPost}>Создать пост</MyButton>
+        <MyButton onClick={addNewPost}>Добавить</MyButton>
       </form>
     </div>
   );

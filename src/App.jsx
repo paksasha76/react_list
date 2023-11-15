@@ -9,6 +9,8 @@ import { PostForm } from "./Components/PostForm";
 import { MyInput } from "./Components/UI/input/MyInput";
 
 import MySelect from "./Components/UI/select/MySelect";
+import { MyModel } from "./Components/UI/MyModal/MyModal";
+import { MyButton } from "./Components/UI/button/MyButton";
 
 function App() {
   const [posts, setPosts] = useState([
@@ -28,6 +30,8 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState("")
 
+  const [modal, setModal] = useState(false)
+
   const sortedPosts = useMemo(() => {
     if(selectedSort) {
       return [...posts].sort((a, b) => {return a[selectedSort].localeCompare(b[selectedSort])});
@@ -36,6 +40,7 @@ function App() {
   }, [selectedSort, posts])
   function createPost(newPost) {
     setPosts([...posts, newPost]);
+    setModal(false)
   }
 
   function removePost(post) {
@@ -57,7 +62,10 @@ function App() {
 
   return (
     <div className="App">
+      <MyButton style={{marginTop: "30px"}} onClick={() => {setModal(true)}}>Создать пост</MyButton>
+      <MyModel visible={modal} setVisible={setModal}>
       <PostForm create={createPost} />
+      </MyModel>
       <div>
         <hr style={{ margin: "15px 0" }}></hr>
         <MyInput placeholder="Поиск" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}/>
