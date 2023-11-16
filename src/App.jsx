@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 
 import "./App.css";
 
@@ -13,37 +13,15 @@ import { MyModel } from "./Components/UI/MyModal/MyModal";
 import { MyButton } from "./Components/UI/button/MyButton";
 
 function App() {
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "Javascript",
-      description:
-        "Мультипарадигменный и интерпретируемый язык программирования с динамической типизацией",
-    },
-    {
-      id: 2,
-      title: "Java",
-      description:
-        "Строго типизированный объектно-ориентированный язык программирования общего назначения",
-    },
-    {
-      id: 3,
-      title: "C",
-      description:
-        "Компилируемый статически типизированный язык программирования общего назначения",
-    },
-    {
-      id: 4,
-      title: "C#",
-      description: "Объектно-ориентированный язык программирования",
-    },
-    {
-      id: 5,
-      title: "Python",
-      description:
-        "Высокоуровневый язык программирования общего назначения с динамической строгой типизацией",
-    },
-  ]);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => res.json())
+      .then((res) => {
+        setPosts(res);
+      });
+  }, []);
+
+  const [posts, setPosts] = useState([]);
 
   const [selectedSort, setSelectedSort] = useState("");
 
