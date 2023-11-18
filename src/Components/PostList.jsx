@@ -3,14 +3,12 @@ import React from "react";
 import { Post } from "./Post";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-export function PostList({ posts, title, remove}) {
+export function PostList({ posts, title, remove }) {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>{title}</h1>
       <TransitionGroup>
-
-        {
-        posts.map((post, index) => {
+        {posts.map((post, index) => {
           return (
             <CSSTransition key={post.id} timeout={500} classNames="post">
               <Post
@@ -25,9 +23,7 @@ export function PostList({ posts, title, remove}) {
             </CSSTransition>
           );
         })}
-    
       </TransitionGroup>
-
     </div>
   );
 }

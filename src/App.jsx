@@ -12,6 +12,8 @@ import { PostFilter } from "./Components/PostFilter/PostFilter";
 
 import { MyLoader } from "./Components/Skeleton/Skeleton";
 
+import { SkeletonTitle } from "./Components/Skeleton/SkeletonTitle";
+
 function App() {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -72,6 +74,7 @@ function App() {
         <PostForm create={createPost} />
       </MyModel>
       <PostFilter filter={filter} setFilter={setFilter} />
+      {isLoading && <SkeletonTitle />}
       {sortedAndSearchedPosts.length !== 0 || isLoading ? (
         isLoading ? (
           [...new Array(6)].map((_) => <MyLoader />)
