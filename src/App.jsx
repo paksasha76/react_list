@@ -6,10 +6,11 @@ import { PostList } from "./Components/PostList";
 
 import { PostForm } from "./Components/PostForm";
 
-
 import { MyModel } from "./Components/UI/MyModal/MyModal";
 import { MyButton } from "./Components/UI/button/MyButton";
 import { PostFilter } from "./Components/PostFilter/PostFilter";
+
+import { MyLoader } from "./Components/Skeleton/Skeleton";
 
 function App() {
   useEffect(() => {
@@ -17,6 +18,7 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         setPosts(res);
+        setIsLoading(false);
       });
   }, []);
 
@@ -24,7 +26,9 @@ function App() {
 
   const [modal, setModal] = useState(false);
 
-  const [filter, setFilter] = useState({sort: "", query: ""})
+  const [filter, setFilter] = useState({ sort: "", query: "" });
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const sortedPosts = useMemo(() => {
     if (filter.sort) {
@@ -67,13 +71,18 @@ function App() {
       <MyModel visible={modal} setVisible={setModal}>
         <PostForm create={createPost} />
       </MyModel>
-    <PostFilter filter={filter} setFilter={setFilter}/>
-      {sortedAndSearchedPosts.length !== 0 ? (
-        <PostList
-          posts={sortedAndSearchedPosts}
-          title={"СПИСОК ПОСТОВ"}
-          remove={removePost}
-        />
+      <PostFilter filter={filter} setFilter={setFilter} />
+      {sortedAndSearchedPosts.length !== 0 || isLoading ? (
+        isLoading ? (
+          [...new Array(6)].map((_) => <MyLoader />)
+        ) : (
+          <PostList
+            posts={sortedAndSearchedPosts}
+            title={"СПИСОК ПОСТОВ"}
+            remove={removePost}
+            isLoading={isLoading}
+          />
+        )
       ) : (
         <h1 style={{ textAlign: "center" }}>Посты не найдены</h1>
       )}
