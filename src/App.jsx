@@ -77,7 +77,7 @@ function App() {
       {isLoading && <SkeletonTitle />}
       {sortedAndSearchedPosts.length !== 0 || isLoading ? (
         isLoading ? (
-          [...new Array(6)].map((_) => <MyLoader />)
+          [...new Array(6)].map((_, index) => <MyLoader key={index}/>)
         ) : (
           <PostList
             posts={sortedAndSearchedPosts}
