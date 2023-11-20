@@ -14,7 +14,7 @@ export function PostList({ posts, title, remove }) {
               <Post
                 title={post.title}
                 id={post.id}
-                description={post.description}
+                description={post.body}
                 number={index + 1}
                 remove={() => {
                   remove(post);
