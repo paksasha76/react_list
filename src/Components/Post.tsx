@@ -1,8 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { MyButton } from "./UI/button/MyButton";
 
-export function Post({ number, title, description, remove }) {
+interface Props {
+  number: number;
+  title: string;
+  description: string;
+  id: number;
+  remove: () => {
+    remove(post: any): any;
+  };
+}
+
+export const Post: FC<Props> = ({ number, title, description, remove }) => {
   return (
     <div className="post">
       <div className="post__content">
@@ -16,4 +26,4 @@ export function Post({ number, title, description, remove }) {
       </div>
     </div>
   );
-}
+};

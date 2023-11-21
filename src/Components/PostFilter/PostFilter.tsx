@@ -2,18 +2,22 @@ import MySelect from "../UI/select/MySelect";
 
 import { MyInput } from "../UI/input/MyInput";
 
-export function PostFilter({ filter, setFilter }) {
+import React from "react"
+
+
+
+export function PostFilter({ filter, setFilter }: any) {
   return (
     <div>
       <hr style={{ margin: "15px 0" }}></hr>
       <MyInput
         placeholder="Поиск"
         value={filter.query}
-        onChange={(e) => setFilter({ ...filter, query: e.target.value })}
+        onChange={(e: any) => setFilter({ ...filter, query: e.target.value })}
       />
       <MySelect
         value={filter.sort}
-        onChange={(selectedSort) =>
+        onChange={(selectedSort: any) =>
           setFilter({ ...filter, sort: selectedSort })
         }
         defaultValue={"Сортировка"}

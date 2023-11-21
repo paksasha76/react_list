@@ -1,20 +1,19 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, FC} from "react";
 
 import "./App.css";
 
 import { PostList } from "./Components/PostList";
-
 import { PostForm } from "./Components/PostForm";
 
 import { MyModel } from "./Components/UI/MyModal/MyModal";
 import { MyButton } from "./Components/UI/button/MyButton";
+
 import { PostFilter } from "./Components/PostFilter/PostFilter";
 
 import { MyLoader } from "./Components/Skeleton/Skeleton";
-
 import { SkeletonTitle } from "./Components/Skeleton/SkeletonTitle";
 
-function App() {
+const App: FC = () => {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
@@ -24,11 +23,11 @@ function App() {
       });
   }, []);
 
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts]: any = useState([]);
 
   const [modal, setModal] = useState(false);
 
-  const [filter, setFilter] = useState({ sort: "", query: "" });
+  const [filter, setFilter] = useState<{sort: string, query: string}>({ sort: "", query: "" });
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,12 +40,12 @@ function App() {
     return posts;
   }, [filter.sort, posts]);
 
-  function createPost(newPost) {
+  function createPost(newPost: any): void {
     setPosts([newPost, ...posts]);
     setModal(false);
   }
 
-  function removePost(post) {
+  function removePost(post: any): void {
     setPosts(
       [...posts].filter((p) => {
         return p.id !== post.id;
@@ -55,7 +54,7 @@ function App() {
   }
 
   const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter((post) => {
+    return sortedPosts.filter((post: any) => {
       return post.title.includes(filter.query);
     });
   }, [filter.query, sortedPosts]);
