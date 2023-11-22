@@ -1,10 +1,11 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 import { MyButton } from "./UI/button/MyButton";
 
 import { MyInput } from "./UI/input/MyInput";
 
-export function PostForm({ create }: any) {
+
+export const PostForm = ({ create }: any) => {
   const [post, setPost] = useState<{title: string, body: string}>({ title: "", body: "" });
 
   function addNewPost(e: any) {

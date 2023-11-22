@@ -4,8 +4,6 @@ import { MyInput } from "../UI/input/MyInput";
 
 import React from "react"
 
-
-
 export function PostFilter({ filter, setFilter }: any) {
   return (
     <div>
