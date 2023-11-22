@@ -1,9 +1,13 @@
-import React from "react"
+import React, { forwardRef, Ref } from 'react';
 
 import styles from "./MyInput.module.css"
 
-export let MyInput:any = React.forwardRef((props) => {
+interface MyInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  }
+  
+  export const MyInput = forwardRef((props: MyInputProps, ref: Ref<HTMLInputElement>) => {
     return (
-        <input className={styles.myInput} {...props}/>
-    )
-})
+      <input className={styles.myInput} ref={ref} {...props} />
+    );
+  });
+

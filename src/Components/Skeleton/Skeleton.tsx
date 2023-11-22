@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-export const MyLoader = (props: any) => (
+export const MyLoader = (props: {}) => (
   <ContentLoader
     speed={2}
     width={1000}

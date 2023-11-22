@@ -4,7 +4,14 @@ import { MyInput } from "../UI/input/MyInput";
 
 import React from "react"
 
-export function PostFilter({ filter, setFilter }: any) {
+interface Props {
+ filter: {sort: string, query: string};
+ setFilter: any
+}
+
+export function PostFilter({ filter, setFilter }: Props) {
+
+  console.log(setFilter)
   return (
     <div>
       <hr style={{ margin: "15px 0" }}></hr>
@@ -15,7 +22,7 @@ export function PostFilter({ filter, setFilter }: any) {
       />
       <MySelect
         value={filter.sort}
-        onChange={(selectedSort: any) =>
+        onChange={(selectedSort: string) =>
           setFilter({ ...filter, sort: selectedSort })
         }
         defaultValue={"Сортировка"}
