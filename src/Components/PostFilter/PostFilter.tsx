@@ -2,16 +2,15 @@ import MySelect from "../UI/select/MySelect";
 
 import { MyInput } from "../UI/input/MyInput";
 
-import React from "react"
+import React from "react";
 
 interface Props {
- filter: {sort: string, query: string};
- setFilter: any
+  filter: { sort: string; query: string };
+  setFilter: any;
 }
 
 export function PostFilter({ filter, setFilter }: Props) {
-
-  console.log(setFilter)
+  console.log(setFilter);
   return (
     <div>
       <hr style={{ margin: "15px 0" }}></hr>

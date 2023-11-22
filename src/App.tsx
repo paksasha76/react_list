@@ -1,11 +1,11 @@
-import React, { useState, useMemo, useEffect, FC} from "react";
+import React, { useState, useMemo, useEffect, FC } from "react";
 
 import "./App.css";
 
 import { PostList } from "./Components/PostList";
 import { PostForm } from "./Components/PostForm";
 
-import { MyModel } from "./Components/UI/MyModal/MyModal";
+import { MyModal } from "./Components/UI/MyModal/MyModal";
 import { MyButton } from "./Components/UI/button/MyButton";
 
 import { PostFilter } from "./Components/PostFilter/PostFilter";
@@ -27,7 +27,10 @@ const App: FC = () => {
 
   const [modal, setModal] = useState(false);
 
-  const [filter, setFilter] = useState<{sort: string, query: string}>({ sort: "", query: "" });
+  const [filter, setFilter] = useState<{ sort: string; query: string }>({
+    sort: "",
+    query: "",
+  });
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,12 +43,16 @@ const App: FC = () => {
     return posts;
   }, [filter.sort, posts]);
 
-  function createPost(newPost: {title: string, id: number, body: string}): void {
+  function createPost(newPost: {
+    title: string;
+    id: number;
+    body: string;
+  }): void {
     setPosts([newPost, ...posts]);
     setModal(false);
   }
 
-  function removePost(post: {title: string, id: number, body: string}): void {
+  function removePost(post: { title: string; id: number; body: string }): void {
     setPosts(
       [...posts].filter((p) => {
         return p.id !== post.id;
@@ -69,9 +76,9 @@ const App: FC = () => {
       >
         Создать пост
       </MyButton>
-      <MyModel visible={modal} setVisible={setModal}>
+      <MyModal visible={modal} setVisible={setModal}>
         <PostForm create={createPost} />
-      </MyModel>
+      </MyModal>
       <PostFilter filter={filter} setFilter={setFilter} />
       {isLoading && <SkeletonTitle />}
       {sortedAndSearchedPosts.length !== 0 || isLoading ? (
@@ -90,6 +97,6 @@ const App: FC = () => {
       )}
     </div>
   );
-}
+};
 
 export default App;

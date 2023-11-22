@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
 interface Props {
-  options: {}[],
-  defaultValue: string,
-  value: string,
-  onChange: (e: any) => {}
+  options: {}[];
+  defaultValue: string;
+  value: string;
+  onChange: (e: any) => {};
 }
 
 function MySelect({ options, defaultValue, value, onChange }: Props) {
