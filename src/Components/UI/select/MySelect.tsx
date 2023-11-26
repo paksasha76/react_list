@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  options: {}[];
+  options: OptionItem[];
   defaultValue: string;
   value: string;
   onChange: Function;
