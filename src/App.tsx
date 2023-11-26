@@ -27,14 +27,19 @@ const App: FC = () => {
     body: string;
     id: number;
     title: string;
-    userId: number
+    userId: number;
+  }
+
+  interface Filter {
+    sort: string;
+    query: string;
   }
 
   const [posts, setPosts]: any = useState<[]>([]);
 
   const [modal, setModal] = useState<Boolean>(false);
 
-  const [filter, setFilter] = useState<{ sort: string; query: string }>({
+  const [filter, setFilter] = useState<Filter>({
     sort: "",
     query: "",
   });

@@ -7,7 +7,7 @@ interface Props {
   onChange: Function;
 }
 
-interface OptionItem  {
+interface OptionItem {
   name?: string;
   value?: string;
 }
@@ -19,7 +19,6 @@ function MySelect({ options, defaultValue, value, onChange }: Props) {
         {defaultValue}
       </option>
       {options.map((option: OptionItem) => {
-        console.log(option)
         return (
           <option key={option.value} value={option.value}>
             {option.name}
