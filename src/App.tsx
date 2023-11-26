@@ -65,7 +65,6 @@ const App: FC = () => {
 
   const sortedAndSearchedPosts = useMemo(() => {
     return sortedPosts.filter((post: Post) => {
-      console.log(post)
       return post.title.includes(filter.query);
     });
   }, [filter.query, sortedPosts]);

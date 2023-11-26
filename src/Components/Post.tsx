@@ -2,13 +2,20 @@ import React, { FC } from "react";
 
 import { MyButton } from "./UI/button/MyButton";
 
+interface PostItem {
+  body: string;
+  id: number;
+  title: string;
+  userId: number
+}
+
 interface Props {
   number: number;
   title: string;
   description: string;
   id: number;
   remove: () => {
-    remove(post: any): any;
+    remove(post: PostItem): PostItem
   };
 }
 
