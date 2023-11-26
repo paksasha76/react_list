@@ -23,16 +23,23 @@ const App: FC = () => {
       });
   }, []);
 
-  const [posts, setPosts]: any = useState([]);
+  interface Post {
+    body: string;
+    id: number;
+    title: string;
+    userId: number
+  }
 
-  const [modal, setModal] = useState(false);
+  const [posts, setPosts]: any = useState<[]>([]);
+
+  const [modal, setModal] = useState<Boolean>(false);
 
   const [filter, setFilter] = useState<{ sort: string; query: string }>({
     sort: "",
     query: "",
   });
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<Boolean>(true);
 
   const sortedPosts = useMemo(() => {
     if (filter.sort) {
@@ -61,7 +68,8 @@ const App: FC = () => {
   }
 
   const sortedAndSearchedPosts = useMemo(() => {
-    return sortedPosts.filter((post: any) => {
+    return sortedPosts.filter((post: Post) => {
+      console.log(post)
       return post.title.includes(filter.query);
     });
   }, [filter.query, sortedPosts]);

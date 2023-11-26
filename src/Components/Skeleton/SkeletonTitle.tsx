@@ -1,5 +1,5 @@
-import React from 'react'
+import React, { FC } from "react";
 
-export function SkeletonTitle() {
+export const SkeletonTitle: FC = () => {
   return <h1 style={{ textAlign: "center" }}>ИДЕТ ЗАГРУЗКА...</h1>;
-}
+};

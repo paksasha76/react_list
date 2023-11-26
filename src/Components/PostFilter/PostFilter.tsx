@@ -10,7 +10,6 @@ interface Props {
 }
 
 export function PostFilter({ filter, setFilter }: Props) {
-  console.log(setFilter);
   return (
     <div>
       <hr style={{ margin: "15px 0" }}></hr>
