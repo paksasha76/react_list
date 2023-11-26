@@ -50,16 +50,12 @@ const App: FC = () => {
     return posts;
   }, [filter.sort, posts]);
 
-  function createPost(newPost: {
-    title: string;
-    id: number;
-    body: string;
-  }): void {
+  function createPost(newPost: Post): void {
     setPosts([newPost, ...posts]);
     setModal(false);
   }
 
-  function removePost(post: { title: string; id: number; body: string }): void {
+  function removePost(post: Post): void {
     setPosts(
       [...posts].filter((p) => {
         return p.id !== post.id;
