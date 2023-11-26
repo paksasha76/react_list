@@ -6,7 +6,7 @@ import React from "react";
 
 interface Props {
   filter: { sort: string; query: string };
-  setFilter: any;
+  setFilter: Function;
 }
 
 export function PostFilter({ filter, setFilter }: Props) {

@@ -4,7 +4,12 @@ interface Props {
   options: {}[];
   defaultValue: string;
   value: string;
-  onChange: (e: any) => {};
+  onChange: Function;
+}
+
+interface OptionItem  {
+  name?: string;
+  value?: string;
 }
 
 function MySelect({ options, defaultValue, value, onChange }: Props) {
@@ -13,7 +18,8 @@ function MySelect({ options, defaultValue, value, onChange }: Props) {
       <option disabled value="">
         {defaultValue}
       </option>
-      {options.map((option: any) => {
+      {options.map((option: OptionItem) => {
+        console.log(option)
         return (
           <option key={option.value} value={option.value}>
             {option.name}
