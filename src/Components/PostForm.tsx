@@ -4,11 +4,16 @@ import { MyButton } from "./UI/button/MyButton";
 
 import { MyInput } from "./UI/input/MyInput";
 
+interface Props {
+  create: Function;
+}
+export const PostForm = ({ create }: Props) => {
+  const [post, setPost] = useState<{ title: string; body: string }>({
+    title: "",
+    body: "",
+  });
 
-export const PostForm = ({ create }: any) => {
-  const [post, setPost] = useState<{title: string, body: string}>({ title: "", body: "" });
-
-  function addNewPost(e: any) {
+  function addNewPost(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const newPost = { ...post, id: Date.now() };
     create(newPost);
@@ -22,16 +27,20 @@ export const PostForm = ({ create }: any) => {
           type="text"
           placeholder="Название поста"
           value={post.title}
-          onChange={(e: any) => setPost({ ...post, title: e.target.value })}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPost({ ...post, title: e.target.value })
+          }
         />
         <MyInput
           type="text"
           placeholder="Описание поста"
           value={post.body}
-          onChange={(e: any) => setPost({ ...post, body: e.target.value })}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPost({ ...post, body: e.target.value })
+          }
         />
         <MyButton onClick={addNewPost}>Добавить</MyButton>
       </form>
     </div>
   );
-}
+};
