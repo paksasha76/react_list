@@ -14,7 +14,7 @@ interface OptionItem {
 
 function MySelect({ options, defaultValue, value, onChange }: Props) {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)}>
+    <select value={value} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value)}>
       <option disabled value="">
         {defaultValue}
       </option>

@@ -4,13 +4,26 @@ import { Post } from "./Post";
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
+interface Props {
+  posts: PostItem [];
+  title: string;
+  remove: Function;
+  isLoading?: Boolean;
+}
 
-export const PostList = ({ posts, title, remove }: any) => {
+interface PostItem {
+  body: string;
+  id: number;
+  title: string;
+  userId: number;
+}
+
+export const PostList = ({ posts, title, remove }: Props) => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>{title}</h1>
       <TransitionGroup>
-        {posts.map((post: {title: string, id: number, body: string}, index: number) => {
+        {posts.map((post: PostItem, index: number) => {
           return (
             <CSSTransition key={post.id} timeout={500} classNames="post">
               <Post

@@ -16,7 +16,7 @@ export function PostFilter({ filter, setFilter }: Props) {
       <MyInput
         placeholder="Поиск"
         value={filter.query}
-        onChange={(e: any) => setFilter({ ...filter, query: e.target.value })}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFilter({ ...filter, query: e.target.value })}
       />
       <MySelect
         value={filter.sort}
