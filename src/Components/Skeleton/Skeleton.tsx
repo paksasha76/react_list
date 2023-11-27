@@ -13,7 +13,7 @@ export const MyLoader = (props: {}) => (
   >
     <circle cx="14" cy="483" r="5" />
     <rect x="269" y="71" rx="0" ry="0" width="1" height="0" />
-    <rect x="6" y="23" rx="0" ry="0" width="800" height="54" />
+    <rect x="6" y="23" rx="0" ry="0" width="800" height="100" />
     <rect x="401" y="40" rx="0" ry="0" width="46" height="5" />
     <rect x="403" y="32" rx="17" ry="17" width="116" height="37" />
   </ContentLoader>
