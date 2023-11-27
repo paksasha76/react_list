@@ -2,8 +2,13 @@ import React from "react";
 
 import classes from "./MyModal.module.css";
 
+interface Props {
+  children: any;
+  visible: Boolean;
+  setVisible: Function;
+}
 
-export function MyModal({ children, visible, setVisible }: any) {
+export function MyModal({ children, visible, setVisible }: Props) {
   const rootClasses = [classes.myModal];
   if (visible) {
     rootClasses.push(classes.active);
