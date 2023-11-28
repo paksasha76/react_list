@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Post } from "./Post";
+import { Post } from "../Post/Post"
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { MyButton } from "./UI/button/MyButton";
+import { MyButton } from "../UI/button/MyButton";
 
 interface PostItem {
   body: string;

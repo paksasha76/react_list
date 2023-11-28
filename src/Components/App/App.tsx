@@ -2,16 +2,16 @@ import React, { useState, useMemo, useEffect, FC } from "react";
 
 import "./App.css";
 
-import { PostList } from "./Components/PostList";
-import { PostForm } from "./Components/PostForm";
+import { PostList } from "../PostList/PostList";
+import { PostForm } from "../PostForm/PostForm";
 
-import { MyModal } from "./Components/UI/MyModal/MyModal";
-import { MyButton } from "./Components/UI/button/MyButton";
+import { MyModal } from "../UI/MyModal/MyModal";
+import { MyButton } from "../UI/button/MyButton";
 
-import { PostFilter } from "./Components/PostFilter/PostFilter";
+import { PostFilter } from "../PostFilter/PostFilter";
 
-import { MyLoader } from "./Components/Skeleton/Skeleton";
-import { SkeletonTitle } from "./Components/Skeleton/SkeletonTitle";
+import { MyLoader } from "../Skeleton/Skeleton";
+import { SkeletonTitle } from "../Skeleton/SkeletonTitle";
 
 const App: FC = () => {
   useEffect(() => {

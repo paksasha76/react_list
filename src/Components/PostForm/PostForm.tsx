@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { MyButton } from "./UI/button/MyButton";
+import { MyButton } from "../UI/button/MyButton";
 
-import { MyInput } from "./UI/input/MyInput";
+import { MyInput } from "../UI/input/MyInput";
 
 interface Props {
   create: Function;
