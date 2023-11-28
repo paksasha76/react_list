@@ -18,10 +18,8 @@ const App: FC = () => {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((res) => {
-        setTimeout(() => {
         setPosts(res);
         setIsLoading(false);
-      }, 10000)
       });
   }, []);
 
