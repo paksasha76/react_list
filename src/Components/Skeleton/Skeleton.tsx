@@ -6,15 +6,15 @@ export const MyLoader = (props: {}) => (
     speed={2}
     width={1000}
     height={100}
-    viewBox="0 0 1000 100"
+    viewBox="0 0 1200 120"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
     {...props}
   >
-    <circle cx="14" cy="483" r="5" />
-    <rect x="269" y="71" rx="0" ry="0" width="1" height="0" />
-    <rect x="6" y="23" rx="0" ry="0" width="800" height="100" />
-    <rect x="401" y="40" rx="0" ry="0" width="46" height="5" />
-    <rect x="403" y="32" rx="17" ry="17" width="116" height="37" />
+    <circle cx="14" cy="1000" r="5" />
+    <rect x="269" y="21" rx="0" ry="50" width="1" height="100" />
+    <rect x="6" y="8" rx="0" ry="50" width="1200" height="500" />
+    <rect x="401" y="300" rx="0" ry="50" width="24" height="300" />
+    <rect x="403" y="400" rx="17" ry="50" width="21" height="370" />
   </ContentLoader>
 );

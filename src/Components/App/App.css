@@ -6,7 +6,7 @@
 }
 
 .App {
-  width: 800px;
+  max-width: 1000px;
 }
 
 #root {
@@ -16,7 +16,7 @@
 
 .post {
   display: flex;
-  padding: 15px;
+  padding: 30px;
   border: 2px solid teal;
   margin-top: 15px;
   justify-content: space-between;
