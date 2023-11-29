@@ -12,9 +12,14 @@ interface OptionItem {
   value?: string;
 }
 
-function MySelect({ options, defaultValue, value, onChange }: Props) {
+const MySelect = ({ options, defaultValue, value, onChange }: Props) => {
   return (
-    <select value={value} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value)}>
+    <select
+      value={value}
+      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+        onChange(e.target.value)
+      }
+    >
       <option disabled value="">
         {defaultValue}
       </option>
@@ -27,6 +32,6 @@ function MySelect({ options, defaultValue, value, onChange }: Props) {
       })}
     </select>
   );
-}
+};
 
 export default MySelect;
