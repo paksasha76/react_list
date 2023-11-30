@@ -14,14 +14,6 @@
   justify-content: center;
 }
 
-.post {
-  display: flex;
-  padding: 30px;
-  border: 2px solid teal;
-  margin-top: 15px;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .post-enter {
   opacity: 0;

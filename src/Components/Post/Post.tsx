@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 
+import classes from "./Post.module.css"
+
 import { MyButton } from "../UI/button/MyButton";
 
 interface PostItem {
@@ -21,7 +23,7 @@ interface Props {
 
 export const Post: FC<Props> = ({ number, title, description, remove }) => {
   return (
-    <div className="post">
+    <div className={classes["Post"]}>
       <div className="post__content">
         <strong>
           {number}. {title}
