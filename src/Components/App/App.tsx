@@ -60,7 +60,7 @@ const App: FC = () => {
       (e.target as Document).documentElement.scrollHeight -
         ((e.target as Document).documentElement.scrollTop +
           window.innerHeight) <
-      100
+      150
     ) {
       setFetching(true);
     }
