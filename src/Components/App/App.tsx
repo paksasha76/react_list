@@ -13,15 +13,48 @@ import { PostFilter } from "../PostFilter/PostFilter";
 import { MyLoader } from "../Skeleton/Skeleton";
 import { SkeletonTitle } from "../Skeleton/SkeletonTitle";
 
+import axios from "axios"
+
 const App: FC = () => {
+
+  const [posts, setPosts]: any = useState<[]>([]);
+
+  const [currentPage, setCurrentPage] = useState<number>(1)
+
+  const [fetching, setFetching] = useState<Boolean>(true)
+
+  const [modal, setModal] = useState<Boolean>(false);
+
+  const [filter, setFilter] = useState<Filter>({
+    sort: "",
+    query: "",
+  });
+
+  const [isLoading, setIsLoading] = useState<Boolean>(true);
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
+    if(fetching) {
+    axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${currentPage}`)
       .then((res) => {
-        setPosts(res);
+        setPosts([...posts, ...res.data]);
+        setCurrentPage(prevState => prevState+1)
         setIsLoading(false);
-      });
-  }, []);
+      }).finally(() => {setFetching(false)})
+  }}, [fetching]);
+
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler)
+    return function() {
+      document.removeEventListener('scroll', scrollHandler)
+    }
+  }, [])
+
+  function scrollHandler(e: any) {
+    if(e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
+      setFetching(true)
+    }
+  }
 
   interface Post {
     body: string;
@@ -34,17 +67,6 @@ const App: FC = () => {
     sort: string;
     query: string;
   }
-
-  const [posts, setPosts]: any = useState<[]>([]);
-
-  const [modal, setModal] = useState<Boolean>(false);
-
-  const [filter, setFilter] = useState<Filter>({
-    sort: "",
-    query: "",
-  });
-
-  const [isLoading, setIsLoading] = useState<Boolean>(true);
 
   const sortedPosts = useMemo(() => {
     if (filter.sort) {
@@ -91,7 +113,7 @@ const App: FC = () => {
       {isLoading && <SkeletonTitle />}
       {sortedAndSearchedPosts.length !== 0 || isLoading ? (
         isLoading ? (
-          [...new Array(6)].map((_, index) => <MyLoader key={index} />)
+          [...new Array(10)].map((_, index) => <MyLoader key={index} />)
         ) : (
           <PostList
             posts={sortedAndSearchedPosts}
