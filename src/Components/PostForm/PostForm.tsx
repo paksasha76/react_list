@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { MyButton } from "../UI/button/MyButton";
 import { MyInput } from "../UI/input/MyInput";
 
-interface Props {
+  interface Props {
   create: Function;
+  setDate: Function;
 }
-const PostForm = ({ create }: Props) => {
+  const PostForm = ({ create, setDate}: Props) => {
   const [post, setPost] = useState<{ title: string; body: string }>({
     title: "",
     body: "",
@@ -15,6 +16,7 @@ const PostForm = ({ create }: Props) => {
     e.preventDefault();
     const newPost = { ...post, id: Date.now() };
     create(newPost);
+    setDate(Date())
     setPost({ title: "", body: "" });
   }
 

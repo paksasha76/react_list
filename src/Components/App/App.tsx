@@ -18,6 +18,8 @@ const App: FC = () => {
 
   const [modal, setModal] = useState<Boolean>(false);
 
+  const [date, setDate] = useState<{}>(new Date());
+
   const [filter, setFilter] = useState<Filter>({
     sort: "",
     query: "",
@@ -111,7 +113,7 @@ const App: FC = () => {
         Создать пост
       </MyButton>
       <MyModal visible={modal} setVisible={setModal}>
-        <PostForm create={createPost} />
+        <PostForm create={createPost} setDate={setDate}/>
       </MyModal>
       <PostFilter filter={filter} setFilter={setFilter} />
       {isLoading && <SkeletonTitle />}
@@ -124,6 +126,7 @@ const App: FC = () => {
             title={"СПИСОК ПОСТОВ"}
             remove={removePost}
             isLoading={isLoading}
+            date={date}
           />
         )
       ) : (

@@ -7,6 +7,7 @@ interface Props {
   title: string;
   remove: Function;
   isLoading?: Boolean;
+  date: any;
 }
 
 interface PostItem {
@@ -16,10 +17,11 @@ interface PostItem {
   userId: number;
 }
 
-const PostList: FC<Props> = ({ posts, title, remove }) => {
+const PostList: FC<Props> = ({ posts, title, remove, date}) => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>{title}</h1>
+      <h2>Дата создания  последнего поста: {date.toString()} </h2>
       <TransitionGroup>
         {posts.map((post: PostItem, index: number) => {
           return (
