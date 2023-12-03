@@ -10,6 +10,11 @@ import { MyButton } from "../UI/button/MyButton";
 import "./App.css";
 
 const App: FC = () => {
+  const currentDate = new Date();
+  const createdAt = currentDate.toLocaleString();
+
+  const [date, setDate] = useState<string>(createdAt);
+
   const [posts, setPosts]: any = useState<[]>([]);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -17,8 +22,6 @@ const App: FC = () => {
   const [fetching, setFetching] = useState<Boolean>(true);
 
   const [modal, setModal] = useState<Boolean>(false);
-
-  const [date, setDate] = useState<{}>(new Date());
 
   const [filter, setFilter] = useState<Filter>({
     sort: "",
@@ -113,7 +116,7 @@ const App: FC = () => {
         Создать пост
       </MyButton>
       <MyModal visible={modal} setVisible={setModal}>
-        <PostForm create={createPost} setDate={setDate}/>
+        <PostForm create={createPost} setDate={setDate} />
       </MyModal>
       <PostFilter filter={filter} setFilter={setFilter} />
       {isLoading && <SkeletonTitle />}
@@ -126,7 +129,7 @@ const App: FC = () => {
             title={"СПИСОК ПОСТОВ"}
             remove={removePost}
             isLoading={isLoading}
-            date={date}
+            createdAt={date}
           />
         )
       ) : (

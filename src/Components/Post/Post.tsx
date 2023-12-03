@@ -20,7 +20,6 @@ interface Props {
 }
 
 export const Post: FC<Props> = ({ number, title, description, remove}) => {
-
   return (
     <div className={classes["Post"]}>
       <div className="post__content">
