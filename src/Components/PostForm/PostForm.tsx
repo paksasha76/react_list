@@ -7,8 +7,7 @@ interface Props {
   setDate: Function;
 }
 const PostForm = ({ create, setDate }: Props) => {
-  const storedDate = localStorage.getItem('myDate');
-  const currentDate = storedDate ? new Date(storedDate) : new Date();
+  const currentDate = new Date();
   const createdAt = currentDate.toLocaleString();
 
   const [post, setPost] = useState<{ title: string; body: string }>({
