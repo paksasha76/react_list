@@ -46,7 +46,7 @@ const App: FC = () => {
           setFetching(false);
         });
     }
-  }, [fetching]);
+  }, [fetching, currentPage, posts]);
 
   useEffect(() => {
     document.addEventListener("scroll", scrollHandler);
