@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Post } from "../Post/Post";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { Post } from "../Post/Post";
 
 interface Props {
   posts: PostItem[];
