@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
-import classes from "./Post.module.css"
+import classes from "./Post.module.css";
 
 import { MyButton } from "../UI/button/MyButton";
 
@@ -8,7 +8,7 @@ interface PostItem {
   body: string;
   id: number;
   title: string;
-  userId: number
+  userId: number;
 }
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
   description: string;
   id: number;
   remove: () => {
-    remove(post: PostItem): PostItem
+    remove(post: PostItem): PostItem;
   };
 }
 

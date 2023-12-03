@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, FC } from "react";
+import { useState, useMemo, useEffect, FC } from "react";
 
 import "./App.css";
 

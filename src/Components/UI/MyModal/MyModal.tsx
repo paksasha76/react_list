@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./MyModal.module.css";
 
 interface Props {

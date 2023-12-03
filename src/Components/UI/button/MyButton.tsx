@@ -1,7 +1,5 @@
 import classes from "./MyButton.module.css";
 
-import React from "react";
-
 interface Props {
   children: string;
   onClick?: any;
