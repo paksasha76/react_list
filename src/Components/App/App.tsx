@@ -116,7 +116,7 @@ const App: FC = () => {
         Создать пост
       </MyButton>
       <MyModal visible={modal} setVisible={setModal}>
-        <PostForm create={createPost} setDate={setDate} />
+        <PostForm create={createPost} setDate={setDate}/>
       </MyModal>
       <PostFilter filter={filter} setFilter={setFilter} />
       {isLoading && <SkeletonTitle />}
