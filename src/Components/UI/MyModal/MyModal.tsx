@@ -1,12 +1,14 @@
 import classes from "./MyModal.module.css";
 
+import { FC } from "react";
+
 interface Props {
   children: any;
   visible: Boolean;
   setVisible: Function;
 }
 
-export const MyModal = ({ children, visible, setVisible }: Props) => {
+export const MyModal: FC<Props> = ({ children, visible, setVisible }) => {
   const rootClasses = [classes.myModal];
   if (visible) {
     rootClasses.push(classes.active);

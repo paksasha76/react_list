@@ -55,7 +55,7 @@ const App: FC = () => {
     };
   }, []);
 
-  function scrollHandler(e: Event) {
+  const scrollHandler = (e: Event) => {
     if (
       (e.target as Document).documentElement.scrollHeight -
         ((e.target as Document).documentElement.scrollTop +
@@ -87,12 +87,12 @@ const App: FC = () => {
     return posts;
   }, [filter.sort, posts]);
 
-  function createPost(newPost: Post): void {
+  const createPost = (newPost: Post): void => {
     setPosts([newPost, ...posts]);
     setModal(false);
   }
 
-  function removePost(post: Post): void {
+  const removePost = (post: Post): void => {
     setPosts(
       [...posts].filter((p) => {
         return p.id !== post.id;

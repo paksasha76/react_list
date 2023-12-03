@@ -1,9 +1,11 @@
-import { Post } from "../Post/Post"
+import { Post } from "../Post/Post";
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
+import { FC } from "react";
+
 interface Props {
-  posts: PostItem [];
+  posts: PostItem[];
   title: string;
   remove: Function;
   isLoading?: Boolean;
@@ -16,7 +18,7 @@ interface PostItem {
   userId: number;
 }
 
-export const PostList = ({ posts, title, remove }: Props) => {
+export const PostList: FC<Props> = ({ posts, title, remove }) => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>{title}</h1>
@@ -39,4 +41,4 @@ export const PostList = ({ posts, title, remove }: Props) => {
       </TransitionGroup>
     </div>
   );
-}
+};

@@ -2,21 +2,23 @@ import MySelect from "../UI/select/MySelect";
 
 import { MyInput } from "../UI/input/MyInput";
 
-import React from "react";
+import React, {FC} from "react";
 
 interface Props {
   filter: { sort: string; query: string };
   setFilter: Function;
 }
 
-export function PostFilter({ filter, setFilter }: Props) {
+export const PostFilter: FC<Props> = ({ filter, setFilter }) => {
   return (
     <div>
       <hr style={{ margin: "15px 0" }}></hr>
       <MyInput
         placeholder="Поиск"
         value={filter.query}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFilter({ ...filter, query: e.target.value })}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setFilter({ ...filter, query: e.target.value })
+        }
       />
       <MySelect
         value={filter.sort}
@@ -31,4 +33,4 @@ export function PostFilter({ filter, setFilter }: Props) {
       />
     </div>
   );
-}
+};

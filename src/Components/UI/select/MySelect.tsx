@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 interface Props {
   options: OptionItem[];
@@ -12,7 +12,7 @@ interface OptionItem {
   value?: string;
 }
 
-const MySelect = ({ options, defaultValue, value, onChange }: Props) => {
+const MySelect: FC<Props> = ({ options, defaultValue, value, onChange }) => {
   return (
     <select
       value={value}
