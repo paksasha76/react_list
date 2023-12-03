@@ -1,19 +1,13 @@
 import { useState, useMemo, useEffect, FC } from "react";
-
-import "./App.css";
-
-import { PostList } from "../PostList/PostList";
-import { PostForm } from "../PostForm/PostForm";
-
-import { MyModal } from "../UI/MyModal/MyModal";
-import { MyButton } from "../UI/button/MyButton";
-
-import { PostFilter } from "../PostFilter/PostFilter";
-
-import { MyLoader } from "../Skeleton/Skeleton";
-import { SkeletonTitle } from "../Skeleton/SkeletonTitle";
-
 import axios from "axios";
+import PostList from "../PostList/PostList";
+import PostForm from "../PostForm/PostForm";
+import PostFilter from "../PostFilter/PostFilter";
+import MyModal from "../UI/MyModal/MyModal";
+import MyLoader from "../Skeleton/Skeleton";
+import SkeletonTitle from "../Skeleton/SkeletonTitle";
+import { MyButton } from "../UI/button/MyButton";
+import "./App.css";
 
 const App: FC = () => {
   const [posts, setPosts]: any = useState<[]>([]);
@@ -64,7 +58,7 @@ const App: FC = () => {
     ) {
       setFetching(true);
     }
-  }
+  };
 
   interface Post {
     body: string;
@@ -90,7 +84,7 @@ const App: FC = () => {
   const createPost = (newPost: Post): void => {
     setPosts([newPost, ...posts]);
     setModal(false);
-  }
+  };
 
   const removePost = (post: Post): void => {
     setPosts(
@@ -98,7 +92,7 @@ const App: FC = () => {
         return p.id !== post.id;
       })
     );
-  }
+  };
 
   const sortedAndSearchedPosts = useMemo(() => {
     return sortedPosts.filter((post: Post) => {

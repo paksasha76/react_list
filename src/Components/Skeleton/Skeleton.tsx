@@ -1,7 +1,7 @@
 import { FC } from "react";
 import ContentLoader from "react-content-loader";
 
-export const MyLoader: FC<{}> = (props) => (
+const MyLoader: FC<{}> = (props) => (
   <ContentLoader
     speed={2}
     width={1000}
@@ -18,3 +18,5 @@ export const MyLoader: FC<{}> = (props) => (
     <rect x="403" y="400" rx="17" ry="50" width="21" height="370" />
   </ContentLoader>
 );
+
+export default MyLoader;

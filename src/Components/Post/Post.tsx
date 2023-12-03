@@ -1,8 +1,6 @@
 import { FC } from "react";
-
-import classes from "./Post.module.css";
-
 import { MyButton } from "../UI/button/MyButton";
+import classes from "./Post.module.css";
 
 interface PostItem {
   body: string;

@@ -1,6 +1,5 @@
-import classes from "./MyModal.module.css";
-
 import { FC } from "react";
+import classes from "./MyModal.module.css";
 
 interface Props {
   children: any;
@@ -8,7 +7,7 @@ interface Props {
   setVisible: Function;
 }
 
-export const MyModal: FC<Props> = ({ children, visible, setVisible }) => {
+const MyModal: FC<Props> = ({ children, visible, setVisible }) => {
   const rootClasses = [classes.myModal];
   if (visible) {
     rootClasses.push(classes.active);
@@ -31,3 +30,5 @@ export const MyModal: FC<Props> = ({ children, visible, setVisible }) => {
     </div>
   );
 };
+
+export default MyModal;

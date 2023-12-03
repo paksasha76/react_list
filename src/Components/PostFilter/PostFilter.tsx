@@ -1,15 +1,13 @@
+import React, { FC } from "react";
 import MySelect from "../UI/select/MySelect";
-
 import { MyInput } from "../UI/input/MyInput";
-
-import React, {FC} from "react";
 
 interface Props {
   filter: { sort: string; query: string };
   setFilter: Function;
 }
 
-export const PostFilter: FC<Props> = ({ filter, setFilter }) => {
+const PostFilter: FC<Props> = ({ filter, setFilter }) => {
   return (
     <div>
       <hr style={{ margin: "15px 0" }}></hr>
@@ -34,3 +32,5 @@ export const PostFilter: FC<Props> = ({ filter, setFilter }) => {
     </div>
   );
 };
+
+export default PostFilter;

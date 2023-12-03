@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-
 import { MyButton } from "../UI/button/MyButton";
-
 import { MyInput } from "../UI/input/MyInput";
 
 interface Props {
   create: Function;
 }
-export const PostForm = ({ create }: Props) => {
+const PostForm = ({ create }: Props) => {
   const [post, setPost] = useState<{ title: string; body: string }>({
     title: "",
     body: "",
@@ -44,3 +42,5 @@ export const PostForm = ({ create }: Props) => {
     </div>
   );
 };
+
+export default PostForm;
