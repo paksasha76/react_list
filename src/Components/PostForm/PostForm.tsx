@@ -8,7 +8,14 @@ interface Props {
 }
 const PostForm = ({ create, setDate }: Props) => {
   const currentDate = new Date();
-  const createdAt = currentDate.toLocaleString("ru-RU", {month: "long", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit"});
+  const createdAt = currentDate.toLocaleString("ru-RU", {
+    month: "long",
+    day: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
 
   const [post, setPost] = useState<{ title: string; body: string }>({
     title: "",
