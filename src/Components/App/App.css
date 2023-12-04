@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-style: oblique;
+  color: white;
 }
 
 .App {
@@ -13,7 +14,6 @@
   display: flex;
   justify-content: center;
 }
-
 
 .post-enter {
   opacity: 0;

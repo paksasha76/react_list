@@ -20,8 +20,8 @@ interface PostItem {
 const PostList: FC<Props> = ({ posts, title, remove, createdAt }) => {
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>{title}</h1>
-      <p>Дата последнего создания поста: {createdAt}</p>
+      <h1 style={{ textAlign: "center", fontStyle: "italic", fontSize: "40px"}}>{title}</h1>
+      <p style={{marginTop: "30px", marginBottom: "30px", marginLeft: "15px"}}>Дата последнего создания поста: {createdAt}</p>
       <TransitionGroup>
         {posts.map((post: PostItem, index: number) => {
           return (

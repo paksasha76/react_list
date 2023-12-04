@@ -10,7 +10,6 @@ import { MyButton } from "../UI/button/MyButton";
 import "./App.css";
 
 const App: FC = () => {
-  
   const currentDate = new Date();
   const createdAt = currentDate.toLocaleString("ru-RU", {
     month: "long",
@@ -23,7 +22,7 @@ const App: FC = () => {
 
   const [date, setDate] = useState<string>(createdAt);
 
-  const [posts, setPosts]: any = useState<[]>([]);
+  const [posts, setPosts]: [any, Function] = useState<[]>([]);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 

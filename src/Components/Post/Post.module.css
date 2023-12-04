@@ -1,13 +1,11 @@
 .Post {
   display: flex;
-  padding: 30px;
-  border: 2px solid teal;
-  margin-top: 15px;
+  padding: 40px;
+  margin-top: 30px;
   justify-content: space-between;
   align-items: center;
-}
-
-.Post:hover {
-  background-color: azure;
+  background-color: black;
+  border-radius: 10px;
   cursor: default;
 }
+
