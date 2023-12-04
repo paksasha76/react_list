@@ -17,7 +17,7 @@ interface PostItem {
   userId: number;
 }
 
-const PostList: FC<Props> = ({ posts, title, remove, createdAt}) => {
+const PostList: FC<Props> = ({ posts, title, remove, createdAt }) => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>{title}</h1>

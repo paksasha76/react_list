@@ -11,7 +11,7 @@ import "./App.css";
 
 const App: FC = () => {
   const currentDate = new Date();
-  const createdAt = currentDate.toLocaleString();
+  const createdAt = currentDate.toLocaleString("ru-RU", {month: "long", day: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit"});
 
   const [date, setDate] = useState<string>(createdAt);
 
@@ -116,7 +116,7 @@ const App: FC = () => {
         Создать пост
       </MyButton>
       <MyModal visible={modal} setVisible={setModal}>
-        <PostForm create={createPost} setDate={setDate}/>
+        <PostForm create={createPost} setDate={setDate} />
       </MyModal>
       <PostFilter filter={filter} setFilter={setFilter} />
       {isLoading && <SkeletonTitle />}
