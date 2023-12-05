@@ -8,13 +8,20 @@ interface Props {
 }
 
 interface OptionItem {
-  name?: string;
-  value?: string;
+  name: string;
+  value: string;
 }
 
 const MySelect: FC<Props> = ({ options, defaultValue, value, onChange }) => {
   return (
-    <select style={{backgroundColor: "black", height: "50px", width: "150px", marginTop: "30px", padding: "8px"}}
+    <select
+      style={{
+        backgroundColor: "black",
+        height: "50px",
+        width: "150px",
+        marginTop: "30px",
+        padding: "8px",
+      }}
       value={value}
       onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
         onChange(e.target.value)

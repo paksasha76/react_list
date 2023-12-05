@@ -4,7 +4,7 @@ import {FC} from "react";
 
 interface Props {
   children: string;
-  onClick?: any;
+  onClick: any;
   style?: {};
 }
 
