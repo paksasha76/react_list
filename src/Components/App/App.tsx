@@ -140,7 +140,11 @@ const App: FC = () => {
           />
         )
       ) : (
-        <h1 style={{ textAlign: "center", fontSize: "40px", marginTop: "100px" }}>Посты не найдены</h1>
+        <h1
+          style={{ textAlign: "center", fontSize: "40px", marginTop: "100px" }}
+        >
+          Посты не найдены
+        </h1>
       )}
     </div>
   );

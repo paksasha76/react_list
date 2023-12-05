@@ -10,7 +10,6 @@ interface Props {
 const PostFilter: FC<Props> = ({ filter, setFilter }) => {
   return (
     <div>
-      <hr style={{ margin: "15px 0" }}></hr>
       <MyInput
         placeholder="Поиск"
         value={filter.query}

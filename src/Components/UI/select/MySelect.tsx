@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import styles from "./MySelect.module.css"
+import styles from "./MySelect.module.css";
 
 interface Props {
   options: OptionItem[];
@@ -15,7 +15,7 @@ interface OptionItem {
 
 const MySelect: FC<Props> = ({ options, defaultValue, value, onChange }) => {
   return (
-    <select 
+    <select
       className={styles.mySelect}
       value={value}
       onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>

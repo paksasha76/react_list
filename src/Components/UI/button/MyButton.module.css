@@ -2,11 +2,11 @@
   padding: 5px 15px;
   font-size: 14px;
   background-color: purple;
-  border: 1px solid aqua;;
+  border: 1px solid aqua;
   cursor: pointer;
   border-radius: 8px;
 }
 
 .myBtn:hover {
-  background-color:blueviolet;
+  background-color: blueviolet;
 }
