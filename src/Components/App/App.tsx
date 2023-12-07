@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, FC } from "react";
+import { useState, useMemo, useEffect, useCallback, FC } from "react";
 import axios from "axios";
 import PostList from "../PostList/PostList";
 import PostForm from "../PostForm/PostForm";
@@ -94,18 +94,18 @@ const App: FC = () => {
     return posts;
   }, [filter.sort, posts]);
 
-  const createPost = (newPost: Post): void => {
+  const createPost = useCallback((newPost: Post): void => {
     setPosts([newPost, ...posts]);
     setModal(false);
-  };
+  }, [posts]);
 
-  const removePostHandler = (post: Post): void => {
+  const removePostHandler = useCallback((post: Post): void => {
     setPosts(
       [...posts].filter((p) => {
         return p.id !== post.id;
       })
     );
-  };
+  }, [posts]);
 
   const sortedAndSearchedPosts = useMemo(() => {
     return sortedPosts.filter((post: Post) => {
