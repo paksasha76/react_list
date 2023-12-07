@@ -1,6 +1,5 @@
-import classes from "./MyButton.module.css";
-
 import { FC } from "react";
+import classes from "./MyButton.module.css";
 
 interface Props {
   children: string;

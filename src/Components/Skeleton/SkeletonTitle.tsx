@@ -1,8 +1,9 @@
-import { FC } from "react";
+import {FC } from "react";
+import classes from "./SkeletonTitle.module.css"
 
 const SkeletonTitle: FC = () => {
   return (
-    <h1 style={{ textAlign: "center", fontSize: "40px" }}>ИДЕТ ЗАГРУЗКА...</h1>
+    <h1 className={classes["skeletonTitle"]}>ИДЕТ ЗАГРУЗКА...</h1>
   );
 };
 

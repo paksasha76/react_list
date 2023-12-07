@@ -16,5 +16,5 @@
 
 ### 6. Axios
 
-### 7. CSS Transition
+### 7. React Transition Group
 
