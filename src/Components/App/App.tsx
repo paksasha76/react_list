@@ -98,7 +98,7 @@ const App: FC = () => {
     setModal(false);
   };
 
-  const removePost = (post: Post): void => {
+  const removePostHandler = (post: Post): void => {
     setPosts(
       [...posts].filter((p) => {
         return p.id !== post.id;
@@ -134,7 +134,7 @@ const App: FC = () => {
           <PostList
             posts={sortedAndSearchedPosts}
             title={"СПИСОК ПОСТОВ"}
-            remove={removePost}
+            remove={removePostHandler}
             isLoading={isLoading}
             createdAt={date}
           />

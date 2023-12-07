@@ -22,7 +22,7 @@ const PostForm = ({ create, setDate }: Props) => {
     body: "",
   });
 
-  function addNewPost(e: React.ChangeEvent<HTMLInputElement>) {
+  function addPostHandler(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const newPost = { ...post, id: Date.now() };
     create(newPost);
@@ -49,7 +49,7 @@ const PostForm = ({ create, setDate }: Props) => {
             setPost({ ...post, body: e.target.value })
           }
         />
-        <MyButton onClick={addNewPost}>Добавить</MyButton>
+        <MyButton onClick={addPostHandler}>Добавить</MyButton>
       </form>
     </div>
   );
