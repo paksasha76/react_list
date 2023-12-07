@@ -6,6 +6,7 @@ interface Props {
   create: Function;
   setDate: Function;
 }
+
 const PostForm = ({ create, setDate }: Props) => {
   const currentDate = new Date();
   const createdAt = currentDate.toLocaleString("ru-RU", {

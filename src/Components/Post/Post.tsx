@@ -29,7 +29,7 @@ export const Post: FC<Props> = ({ number, title, description, remove }) => {
         <div>{description}</div>
       </div>
       <div className="post__btns">
-        <MyButton onClick={remove}>DELETE</MyButton>
+        <MyButton onClick={remove}>Удалить</MyButton>
       </div>
     </div>
   );

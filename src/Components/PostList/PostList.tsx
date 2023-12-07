@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Post } from "../Post/Post";
-import { MyInput } from "../UI/input/MyInput";
 
 interface Props {
   posts: PostItem[];
@@ -19,24 +18,13 @@ interface PostItem {
 }
 
 const PostList: FC<Props> = ({ posts, title, remove, createdAt }) => {
-  const [description, setDescription] = useState("");
-
-  function changeTitleHandler(e: any) {
-    setDescription(e.target.value);
-  }
   return (
     <div>
-      <MyInput
-        defaultValue=""
-        onChange={changeTitleHandler}
-        placeholder="Добавить описание"
-      />
       <h1
         style={{ textAlign: "center", fontStyle: "italic", fontSize: "40px" }}
       >
         {title}
       </h1>
-      {description}
       <p
         style={{
           marginTop: "30px",
