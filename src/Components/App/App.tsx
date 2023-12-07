@@ -6,6 +6,7 @@ import PostFilter from "../PostFilter/PostFilter";
 import MyModal from "../UI/MyModal/MyModal";
 import MyLoader from "../Skeleton/Skeleton";
 import SkeletonTitle from "../Skeleton/SkeletonTitle";
+import NotFound from "../NotFound/NotFound"
 import { MyButton } from "../UI/button/MyButton";
 import "./App.css";
 
@@ -140,11 +141,7 @@ const App: FC = () => {
           />
         )
       ) : (
-        <h1
-          style={{ textAlign: "center", fontSize: "40px", marginTop: "100px" }}
-        >
-          Посты не найдены
-        </h1>
+        <NotFound />
       )}
     </div>
   );
