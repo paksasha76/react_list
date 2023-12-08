@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { MyButton } from "../UI/button/MyButton";
 import { MyInput } from "../UI/input/MyInput";
 
+interface Post {
+  body: string;
+  id: number;
+  title: string;
+  userId: number;
+  [key: string]: any;
+}
+
 interface Props {
-  create: Function;
-  setDate: Function;
+  create: (newPost: Post) => void;
+  setDate: (date: string) => void;
 }
 
 const PostForm = ({ create, setDate }: Props) => {
@@ -25,7 +33,7 @@ const PostForm = ({ create, setDate }: Props) => {
 
   function addPostHandler(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
-    const newPost = { ...post, id: Date.now() };
+    const newPost = { ...post, id: Date.now(), userId: 1 };
     create(newPost);
     setPost({ title: "", body: "" });
     setDate(createdAt);
