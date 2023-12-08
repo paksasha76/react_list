@@ -50,14 +50,6 @@ const PostForm = ({ create, setDate }: Props) => {
             setPost({ ...post, title: e.target.value })
           }
         />
-        <MyInput
-          type="text"
-          placeholder="Описание поста"
-          value={post.body}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setPost({ ...post, body: e.target.value })
-          }
-        />
         <MyButton onClick={addPostHandler}>Добавить</MyButton>
       </form>
     </div>
