@@ -6,7 +6,7 @@ import PostFilter from "../PostFilter/PostFilter";
 import MyModal from "../UI/MyModal/MyModal";
 import MyLoader from "../Skeleton/Skeleton";
 import SkeletonTitle from "../Skeleton/SkeletonTitle";
-import NotFound from "../NotFound/NotFound"
+import NotFound from "../NotFound/NotFound";
 import { MyButton } from "../UI/button/MyButton";
 import "./App.css";
 
@@ -23,7 +23,7 @@ const App: FC = () => {
 
   const [date, setDate] = useState<string>(createdAt);
 
-  const [posts, setPosts]: [any, Function] = useState<[]>([]);
+  const [posts, setPosts]: [Array<Post>, Function] = useState<[]>([]);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -78,6 +78,7 @@ const App: FC = () => {
     id: number;
     title: string;
     userId: number;
+    [key: string]: any;
   }
 
   interface Filter {
@@ -94,18 +95,24 @@ const App: FC = () => {
     return posts;
   }, [filter.sort, posts]);
 
-  const createPost = useCallback((newPost: Post): void => {
-    setPosts([newPost, ...posts]);
-    setModal(false);
-  }, [posts]);
+  const createPost = useCallback(
+    (newPost: Post): void => {
+      setPosts([newPost, ...posts]);
+      setModal(false);
+    },
+    [posts]
+  );
 
-  const removePostHandler = useCallback((post: Post): void => {
-    setPosts(
-      [...posts].filter((p) => {
-        return p.id !== post.id;
-      })
-    );
-  }, [posts]);
+  const removePostHandler = useCallback(
+    (post: Post): void => {
+      setPosts(
+        [...posts].filter((p) => {
+          return p.id !== post.id;
+        })
+      );
+    },
+    [posts]
+  );
 
   const sortedAndSearchedPosts = useMemo(() => {
     return sortedPosts.filter((post: Post) => {

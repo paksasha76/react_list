@@ -4,7 +4,7 @@ import { MyInput } from "../UI/input/MyInput";
 
 interface Props {
   filter: { sort: string; query: string };
-  setFilter: Function;
+  setFilter: (filter: { sort: string; query: string }) => void;
 }
 
 const PostFilter: FC<Props> = ({ filter, setFilter }) => {
