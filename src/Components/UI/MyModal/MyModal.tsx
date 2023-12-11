@@ -4,7 +4,7 @@ import classes from "./MyModal.module.css";
 interface Props {
   children: any;
   visible: Boolean;
-  setVisible: Function;
+  setVisible: (visible: Boolean) => void;
 }
 
 const MyModal: FC<Props> = ({ children, visible, setVisible }) => {
