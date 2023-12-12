@@ -1,14 +1,8 @@
-import { FC } from "react";
+import { useContext, memo, FC } from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Post } from "../Post/Post";
 
-interface Props {
-  posts: PostItem[];
-  title: string;
-  remove: Function;
-  isLoading?: Boolean;
-  createdAt: string;
-}
+import { newContext } from "../Context/Context";
 
 interface PostItem {
   body: string;
@@ -17,13 +11,14 @@ interface PostItem {
   userId: number;
 }
 
-const PostList: FC<Props> = ({ posts, title, remove, createdAt }) => {
+const PostList: FC = memo(() => {
+  const data: any = useContext(newContext);
   return (
     <div>
       <h1
         style={{ textAlign: "center", fontStyle: "italic", fontSize: "40px" }}
       >
-        {title}
+        {data.title}
       </h1>
       <p
         style={{
@@ -33,10 +28,10 @@ const PostList: FC<Props> = ({ posts, title, remove, createdAt }) => {
           fontSize: "20px",
         }}
       >
-        Дата последнего создания поста: {createdAt}
+        Дата последнего создания поста: {data.createdAt}
       </p>
       <TransitionGroup>
-        {posts.map((post: PostItem, index: number) => {
+        {data.posts.map((post: PostItem, index: number) => {
           return (
             <CSSTransition key={post.id} timeout={500} classNames="post">
               <Post
@@ -45,7 +40,7 @@ const PostList: FC<Props> = ({ posts, title, remove, createdAt }) => {
                 description={post.body}
                 number={index + 1}
                 remove={() => {
-                  return remove(post);
+                  return data.remove(post);
                 }}
               />
             </CSSTransition>
@@ -54,6 +49,6 @@ const PostList: FC<Props> = ({ posts, title, remove, createdAt }) => {
       </TransitionGroup>
     </div>
   );
-};
+});
 
 export default PostList;

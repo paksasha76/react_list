@@ -8,6 +8,7 @@ import MyLoader from "../Skeleton/Skeleton";
 import SkeletonTitle from "../Skeleton/SkeletonTitle";
 import NotFound from "../NotFound/NotFound";
 import { MyButton } from "../UI/button/MyButton";
+import { newContext } from "../Context/Context";
 import "./App.css";
 
 const App: FC = () => {
@@ -139,13 +140,17 @@ const App: FC = () => {
         isLoading ? (
           [...new Array(10)].map((_, index) => <MyLoader key={index} />)
         ) : (
-          <PostList
-            posts={sortedAndSearchedPosts}
-            title={"СПИСОК ПОСТОВ"}
-            remove={removePostHandler}
-            isLoading={isLoading}
-            createdAt={date}
-          />
+          <newContext.Provider
+            value={{
+              posts: sortedAndSearchedPosts,
+              title: "СПИСОК ПОСТОВ",
+              remove: removePostHandler,
+              isLoading: isLoading,
+              createdAt: date,
+            }}
+          >
+            <PostList />
+          </newContext.Provider>
         )
       ) : (
         <NotFound />

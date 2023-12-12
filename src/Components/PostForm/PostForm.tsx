@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { MyButton } from "../UI/button/MyButton";
 import { MyInput } from "../UI/input/MyInput";
 
@@ -15,7 +15,7 @@ interface Props {
   setDate: (date: string) => void;
 }
 
-const PostForm = ({ create, setDate }: Props) => {
+const PostForm = memo(({ create, setDate }: Props) => {
   const currentDate = new Date();
   const createdAt = currentDate.toLocaleString("ru-RU", {
     month: "long",
@@ -50,10 +50,18 @@ const PostForm = ({ create, setDate }: Props) => {
             setPost({ ...post, title: e.target.value })
           }
         />
+        <MyInput
+          type="text"
+          placeholder="Описание поста"
+          value={post.body}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setPost({ ...post, body: e.target.value })
+          }
+        />
         <MyButton onClick={addPostHandler}>Добавить</MyButton>
       </form>
     </div>
   );
-};
+});
 
 export default PostForm;
